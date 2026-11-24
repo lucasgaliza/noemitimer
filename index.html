@@ -13,7 +13,6 @@
   *,*::before,*::after{ box-sizing:border-box; }
 
   :root {
-    /* Muji Light Theme */
     --bg: #f4f1ea;
     --bg-image-1: rgba(210, 200, 185, 0.4);
     --bg-image-2: rgba(230, 220, 205, 0.6);
@@ -29,13 +28,10 @@
     --input-border: #e0d8cc;
     --shadow: 0 10px 30px -10px rgba(80, 70, 60, 0.08), 0 1px 0 rgba(255,255,255,0.6) inset;
     --shadow-card: 0 20px 40px -20px rgba(80, 70, 60, 0.12);
-    
-    /* Gradiente Unificado - Light */
     --grad-main: linear-gradient(100deg, #38332e 0%, #7a6b5d 45%, #a89888 100%);
   }
 
   [data-theme="dark"] {
-    /* Muji Dark Theme */
     --bg: #1c1b19;
     --bg-image-1: rgba(50, 45, 40, 0.5);
     --bg-image-2: rgba(40, 35, 30, 0.6);
@@ -51,8 +47,6 @@
     --input-border: #3f3b36;
     --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255,255,255,0.05) inset;
     --shadow-card: 0 40px 80px -40px rgba(0, 0, 0, 0.5);
-    
-    /* Gradiente Unificado - Dark */
     --grad-main: linear-gradient(100deg, #ffffff 0%, #ffb3d6 45%, #8ea8ff 100%);
   }
 
@@ -141,7 +135,6 @@
   }
   @keyframes pulse{ 50%{ opacity:.35; } }
 
-  /* Configuração base dos títulos */
   h1, .weekend h2 {
     margin: 0 0 8px;
     font-family: 'Sora', 'Inter', -apple-system, sans-serif;
@@ -149,7 +142,7 @@
     font-size: clamp(1.45rem, 5.4vw, 2.2rem);
     line-height: 1.18;
     letter-spacing: -.02em;
-    color: var(--text); /* Fallback */
+    color: var(--text);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -163,7 +156,6 @@
     margin-bottom: 8px;
   }
 
-  /* O segredo: O gradiente SÓ se aplica à classe .text-gradient */
   @supports ((-webkit-background-clip: text) or (background-clip: text)) {
     .text-gradient {
       background: var(--grad-main);
@@ -180,7 +172,6 @@
     color:var(--muted);
   }
 
-  /* ---------- input de horário ---------- */
   .timewrap{ position:relative; display:flex; align-items:center; }
 
   #entrada{
@@ -391,7 +382,6 @@
   }
   .result-box.friday b{ color:var(--gold); }
 
-  /* ---------- polaroids ---------- */
   .surprise-card{
     margin-top:24px;
     padding:18px;
@@ -485,7 +475,6 @@
   .polaroid-big .cap-title{ font-size:15px; }
   .polaroid-big .cap-meta{ font-size:11px; margin-top:4px; }
 
-  /* ---------- final de semana ---------- */
   .weekend{
     margin-top:8px;
     padding:18px;
@@ -516,7 +505,6 @@
     min-height:120px;
   }
 
-  /* ---------- confete ---------- */
   .confetti-layer{
     position:fixed;
     inset:0;
@@ -536,75 +524,6 @@
     0%{ transform:translateY(0) rotate(0deg) scale(.8); opacity:0; }
     12%{ opacity:1; }
     100%{ transform:translateY(-115vh) rotate(340deg) scale(1.1); opacity:0; }
-  }
-
-  /* ---------- painel de debug ---------- */
-  .debug{
-    margin-top:22px;
-    padding:14px 16px;
-    border:1px dashed var(--border);
-    border-radius:14px;
-    background:var(--bg);
-  }
-  .debug-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    flex-wrap:wrap;
-    font-size:11px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:var(--muted);
-    font-weight:600;
-    margin-bottom:10px;
-  }
-  #debugNow{
-    font-size:11px;
-    letter-spacing:.04em;
-    text-transform:none;
-    color:var(--accent);
-  }
-  .debug-days, .debug-times{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
-  .debug-day{
-    flex:1 1 auto;
-    min-width:54px;
-    padding:7px 10px;
-    font-family:inherit;
-    font-size:12.5px;
-    font-weight:600;
-    color:var(--muted);
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:9px;
-    cursor:pointer;
-    transition:.15s;
-  }
-  .debug-day:hover{ color:var(--text); border-color:var(--accent-soft); }
-  .debug-day.active{
-    color:var(--surface);
-    background:var(--accent);
-    border-color:var(--accent);
-  }
-  .debug-actions{ margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; }
-  .debug-actions button{
-    padding:7px 12px;
-    font-family:inherit;
-    font-size:12.5px;
-    font-weight:600;
-    color:var(--text);
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:9px;
-    cursor:pointer;
-    transition:.15s;
-  }
-  .debug-actions button:hover{ border-color:var(--accent-soft); }
-  .debug-note{
-    margin:10px 0 0;
-    font-size:11.5px;
-    line-height:1.5;
-    color:var(--muted);
   }
 
   @media (max-width:560px){
@@ -705,25 +624,6 @@
       </p>
       <div id="catGallery" class="gallery" aria-label="Galeria de imagens aleatórias"></div>
     </section>
-
-    <!-- ============================================================
-         PAINEL DE DEBUG — apague esta <section> e todo o bloco
-         "DEBUG" do script quando quiser esconder.
-         ============================================================ -->
-    <section class="debug" id="debugPanel">
-      <div class="debug-head">
-        <span>🛠 Modo debug</span>
-        <span id="debugNow">—</span>
-      </div>
-      <div class="debug-days" id="debugDays"></div>
-      <div class="debug-times" id="debugTimes"></div>
-      <div class="debug-actions">
-        <button type="button" id="shuffleBtn">🔄 Sortear imagens de novo</button>
-      </div>
-      <p class="debug-note">
-        Escolha um dia e um horário para simular o comportamento. Em <b>Auto</b>, vale o dia/horário real do aparelho.
-      </p>
-    </section>
   </main>
 
   <div id="confetti" class="confetti-layer" aria-hidden="true"></div>
@@ -732,7 +632,6 @@
 (function () {
   'use strict';
 
-  /* ===================== Theme Toggle ===================== */
   const root = document.documentElement;
   const themeToggle = document.getElementById('themeToggle');
   
@@ -758,7 +657,6 @@
     updateThemeIcon();
   });
 
-  /* ===================== helpers ===================== */
   const $ = (id) => document.getElementById(id);
   const pad = (n) => String(n).padStart(2, '0');
   const rnd = (n) => Math.floor(Math.random() * n);
@@ -797,7 +695,6 @@
     });
   }
 
-  /* ===================== elementos ===================== */
   const normalUI   = $('normalUI');
   const entrada    = $('entrada');
   const calcBtn    = $('calcBtn');
@@ -816,33 +713,13 @@
   const nowBtn     = $('nowBtn');
   const confetti   = $('confetti');
   const hint       = $('hint');
-  const debugDays  = $('debugDays');
-  const debugTimes = $('debugTimes');
-  const debugNow   = $('debugNow');
-  const shuffleBtn = $('shuffleBtn');
   const greetingText = $('greetingText');
   const greetingEmoji = $('greetingEmoji');
 
-  /* ===================== dia da semana + DEBUG ===================== */
-  const DIAS = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira',
-                'Quinta-feira', 'Sexta-feira', 'Sábado'];
-  const DIAS_CURTO = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
-
-  let dayOverride = null; 
-  let timeOverride = null; 
-
-  function realDay() { return new Date().getDay(); }
-  function getDay() { return dayOverride === null ? realDay() : dayOverride; }
+  function getDay() { return new Date().getDay(); }
   function isWeekend(day) { return day === 0 || day === 6; }
+  function getHour() { return new Date().getHours(); }
 
-  function getHour() {
-    if (timeOverride === 'manha') return 9;
-    if (timeOverride === 'tarde') return 15;
-    if (timeOverride === 'noite') return 21;
-    return new Date().getHours();
-  }
-
-  /* ===================== horário ===================== */
   function parseTime(raw) {
     if (!raw) return null;
     const m = String(raw).trim().match(/^(\d{1,2}):?(\d{2})$/);
@@ -932,7 +809,6 @@
 
   calcBtn.addEventListener('click', runCalc);
 
-  /* ===================== fontes de imagem aleatória ===================== */
   const KIND_EMOJI = {
     comida: '🍜', gato: '🐱', cachorro: '🐶', foto: '📷'
   };
@@ -1018,7 +894,6 @@
     }
   ];
 
-  // Dispara 3 fontes ao mesmo tempo e usa a mais rápida
   async function getRandomImage() {
     const order = shuffle(SOURCES.slice()).slice(0, 3);
     
@@ -1056,7 +931,6 @@
     };
   }
 
-  /* ===================== render de polaroid ===================== */
   function fallbackSeed() {
     return Math.random().toString(36).slice(2, 9);
   }
@@ -1119,7 +993,6 @@
     return fig;
   }
 
-  /* ===================== imagem principal ===================== */
   async function loadSurprise() {
     mainFrame.innerHTML = '';
     const skeleton = buildSkeleton(true);
@@ -1136,7 +1009,6 @@
     }
   }
 
-  /* ===================== galeria do fim de semana ===================== */
   async function buildGallery() {
     catGallery.innerHTML = '';
     const slots = [];
@@ -1180,7 +1052,6 @@
     });
   }
 
-  /* ===================== Saudação dinâmica ===================== */
   function updateGreeting() {
     if (!greetingText || !greetingEmoji) return;
 
@@ -1203,7 +1074,6 @@
     greetingEmoji.textContent = emoji;
   }
 
-  /* ===================== dia → UI ===================== */
   function updateUIForDay() {
     const day = getDay();
 
@@ -1221,7 +1091,6 @@
     }
   }
 
-  /* ===================== confete ===================== */
   function celebrate() {
     const emojis = ['💜', '✨', '🌸', '🎉', '🩷', '💫', '🍰'];
 
@@ -1239,7 +1108,6 @@
     }
   }
 
-  /* ===================== seletor de horário ===================== */
   let selH = 8;
   let selM = 0;
 
@@ -1348,87 +1216,11 @@
     entrada.focus();
   });
 
-  /* ===================== DEBUG ===================== */
-  function syncDebug() {
-    Array.prototype.forEach.call(debugDays.children, function (b) {
-      const v = b.dataset.v === '' ? null : Number(b.dataset.v);
-      b.classList.toggle('active', v === dayOverride);
-    });
-
-    Array.prototype.forEach.call(debugTimes.children, function (b) {
-      const v = b.dataset.v === '' ? null : b.dataset.v;
-      b.classList.toggle('active', v === timeOverride);
-    });
-
-    let dayStr = DIAS[getDay()] + (dayOverride === null ? ' · real' : ' · simulado');
-    let timeStr = '';
-    if (timeOverride === 'manha') timeStr = 'Manhã';
-    if (timeOverride === 'tarde') timeStr = 'Tarde';
-    if (timeOverride === 'noite') timeStr = 'Noite';
-    if (timeOverride === null) timeStr = 'Horário real';
-
-    debugNow.textContent = dayStr + ' / ' + timeStr;
-  }
-
-  function onDayChanged() {
-    hideResults();
-    warn.hidden = true;
-    updateUIForDay();
-    syncDebug();
-  }
-
-  (function buildDebug() {
-    function makeDayBtn(label, value) {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'debug-day';
-      b.textContent = label;
-      b.dataset.v = value === null ? '' : String(value);
-      b.addEventListener('click', function () {
-        dayOverride = value;
-        onDayChanged();
-      });
-      return b;
-    }
-
-    debugDays.appendChild(makeDayBtn('Auto', null));
-    DIAS_CURTO.forEach(function (d, i) {
-      debugDays.appendChild(makeDayBtn(d, i));
-    });
-
-    function makeTimeBtn(label, value) {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'debug-day';
-      b.textContent = label;
-      b.dataset.v = value === null ? '' : value;
-      b.addEventListener('click', function () {
-        timeOverride = value;
-        updateGreeting();
-        buildHint();
-        syncDebug();
-      });
-      return b;
-    }
-
-    debugTimes.appendChild(makeTimeBtn('Auto', null));
-    debugTimes.appendChild(makeTimeBtn('Manhã', 'manha'));
-    debugTimes.appendChild(makeTimeBtn('Tarde', 'tarde'));
-    debugTimes.appendChild(makeTimeBtn('Noite', 'noite'));
-  })();
-
-  shuffleBtn.addEventListener('click', function () {
-    if (isWeekend(getDay())) buildGallery();
-    else loadSurprise();
-  });
-
-  /* ===================== init ===================== */
   (function init() {
     const now = new Date();
     entrada.value = pad(now.getHours()) + ':' + pad(now.getMinutes());
 
     syncPicker(false);
-    syncDebug();
     updateUIForDay();
   })();
 })();
